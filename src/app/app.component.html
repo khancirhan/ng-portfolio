@@ -1,0 +1,287 @@
+<section id="body-wrapper">
+    <!-- ==================================== HEADER STARTS ==================================== -->
+    <header id="header" class="header">
+        <div class="container">
+            <!-- ==================================== NAV STARTS ==================================== -->
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <div class="brand-logo">KC</div>
+                    Khan<span class="primary-text">Cirhan</span>
+                </div>
+
+                <button id="menuBtn" class="menu-btn butn-toggle" (click)="showSidebar()">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <div class="nav-list">
+                    <div class="d-flex">
+                        <a class="nav-link" href="#">Home</a>
+
+                        <a class="nav-link" href="#about">About Me</a>
+
+                        <a class="nav-link" href="#services">What I do</a>
+
+                        <a class="nav-link" href="#timeline">Experience</a>
+
+                        <a class="nav-link" href="#work">My Work</a>
+                    </div>
+
+                    <a type="button" href="#contact" class="butn butn-primary"
+                    >Contact</a
+                    >
+                </div>
+                <!-- ==================================== SIDEBAR STARTS ==================================== -->
+                <div id="sidebar" class="sidebar" [class.open]="isSidebarOpen">
+                    <button id="crossBtn" class="cross-btn butn-toggle" (click)="hideSidebar(null)">
+                        <i class="fa fa-times"></i>
+                    </button>
+
+                    <div class="nav-list-vertical" (click)="hideSidebar($event)">
+                        <a class="nav-link" href="#">Home</a>
+
+                        <a class="nav-link" href="#about">About Me</a>
+
+                        <a class="nav-link" href="#services">What I do</a>
+
+                        <a class="nav-link" href="#timeline">Experience</a>
+
+                        <a class="nav-link" href="#work">My Work</a>
+
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </div>
+                </div>
+                <!-- ==================================== SIDEBAR ENDS ==================================== -->
+            </nav>
+            <!-- ==================================== NAV ENDS ==================================== -->
+        </div>
+    </header>
+    <!-- ==================================== HEADER ENDS ==================================== -->
+
+    <!-- ==================================== MAIN STARTS ==================================== -->
+    <main>
+        <!-- ==================================== SHOWCASE STARTS ==================================== -->
+        <section id="showcase" class="showcase">
+            <div class="container">
+                <div class="showcase-wrapper">
+                    <div class="content-wrapper">
+                        <h3 class="primary-text">{{ user.firstName + ' ' + user.lastName }}</h3>
+                        <h1>
+                            <ng-container *ngFor="let word of profileWordArray(); index as i;">
+                                <span [class.primary-text]="profileWordArray().length === (i+1)">
+                                    {{ word + ' ' }}
+                                </span>
+                            </ng-container>
+                        </h1>
+                        <p class="secondary-font">
+                            {{ user.profileDescription }}
+                        </p>
+                        <button class="butn butn-primary-outline">Download Resume</button>
+                    </div>
+
+                    <div class="img-wrapper">
+                        <img class="responsive-img" src="assets/img/showcase-img.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================================== SHOWCASE ENDS ==================================== -->
+
+        <!-- ==================================== ABOUT STARTS ==================================== -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="img-wrapper">
+                        <img class="responsive-img" src="assets/img/about-img.png"/>
+                    </div>
+                    <div class="content-wrapper">
+                        <h1>About <span class="primary-text">Me</span></h1>
+                        <h4>Hello, I'm {{ user.firstName + ' ' + user.lastName}}</h4>
+                        <p class="secondary-font">
+                            {{ user.aboutDescription }}
+                        </p>
+                        <div class="social">
+                            <a class="social-icon" target="_blank" [href]="user.githubUrl">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a class="social-icon" target="_blank" [href]="user.linkedInUrl">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a class="social-icon" [href]="'mailto:' + user.email">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================================== ABOUT ENDS ==================================== -->
+
+        <!-- ==================================== SERVICE STARTS ==================================== -->
+        <section id="services" class="services">
+            <div class="container">
+                <h1 class="section-heading">
+                    <span class="primary-text">What</span> I do
+                </h1>
+                <h6 class="section-subheading">
+                    Lorem ipsum dolor sit amet.
+                </h6>
+                <div class="card-wrapper">
+                    <div class="card" *ngFor="let service of user.services">
+                        <div class="card-icon">
+                            <i class="fa-3x" [class]="service.icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>{{ service.title }}</h3>
+                            <p class="secondary-font text-muted">
+                                {{ service.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================================== SERVICE ENDS ==================================== -->
+
+        <!-- ==================================== BANNER STARTS ==================================== -->
+        <section id="banner" class="banner">
+            <div class="container">
+                <div class="section-heading">
+                    <h1>Get in touch with Me</h1>
+                    <p>
+                        {{ user.userQuote }}
+                    </p>
+                    <a type="button" href="#contact" class="butn butn-primary"
+                    >My Contact</a
+                    >
+                </div>
+            </div>
+        </section>
+        <!-- ==================================== BANNER ENDS ==================================== -->
+
+        <!-- ==================================== TIMELINE STARTS ==================================== -->
+        <section id="timeline" class="timeline">
+            <div class="container">
+                <h1 class="section-heading">
+                    Work <span class="primary-text">Experience</span>
+                </h1>
+                <h6 class="section-subheading">
+                    Lorem ipsum dolor sit amet.
+                </h6>
+                <ul class="timeline">
+                    <li class="timeline-item" [class.inverted]="even"
+                        *ngFor="let experience of user.experienceList; index as i; even as even">
+                        <img class="timeline-img" src="assets/img/portfolio/p{{(i+1)%8}}.jpg" alt=""/>
+                        <div class="timeline-panel">
+                            <h5 class="timeline-date">
+                                {{ experience.startDate | date:'MM/yy' }} to {{ experience.endDate | date:'MM/yy' }}
+                            </h5>
+                            <h4 class="timeline-heading">{{ experience.title }}</h4>
+                            <p class="muted-text secondary-font">
+                                {{ experience.description }}
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <img class="timeline-img" src="assets/img/portfolio/p9.jpg" alt=""/>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- ==================================== TIMELINE ENDS ==================================== -->
+
+        <!-- ==================================== WORK STARTS ==================================== -->
+        <section id="work" class="work">
+            <div class="container">
+                <h1 class="section-heading">
+                    <span class="primary-text">My</span> Work
+                </h1>
+                <h6 class="section-subheading">
+                    Lorem ipsum dolor sit amet.
+                </h6>
+                <div class="card-wrapper">
+                    <div class="card" *ngFor="let project of user.projects">
+                        <img class="card-img" [src]="project.imageUrl" alt=""/>
+                        <div class="card-body">
+                            <h4>{{ project.title }}</h4>
+                            <h6 class="muted-text italic-text">{{ project.category }}</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ==================================== WORK ENDS ==================================== -->
+
+        <!-- ==================================== CONTACT STARTS ==================================== -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h1 class="section-heading">
+                    Contact <span class="primary-text">Me</span>
+                </h1>
+                <h6 class="section-subheading">
+                    Lorem ipsum dolor sit amet.
+                </h6>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="contact-card">
+                            <i class="fa fa-mobile-alt fa-4x"></i>
+                            <h3>Call Me On</h3>
+                            <h6>
+                                <a class="secondary-font">{{ user.phone }}</a>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-card">
+                            <i class="fa fa-envelope fa-4x"></i>
+                            <h3>Email Me At</h3>
+                            <h6>
+                                <a class="secondary-font" [href]="'mailto:' + user.email">{{ user.email }}</a>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-card">
+                            <i class="fab fa-linkedin fa-4x"></i>
+                            <h3>Find Me On</h3>
+                            <h6>
+                                <a class="secondary-font" [href]="user.linkedInUrl"
+                                >{{ user.linkedInUrl.substr(8) }}</a
+                                >
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================================== CONTACT ENDS ==================================== -->
+    </main>
+    <!-- ==================================== MAIN ENDS ==================================== -->
+
+    <!-- ==================================== FOOTER STARTS ==================================== -->
+    <footer id="footer" class="footer">
+        Copyright © <span class="primary-text">Khan Cirhan </span>
+        <span id="currentYear">{{ year }}</span>
+    </footer>
+    <!-- ==================================== FOOTER ENDS ==================================== -->
+</section>
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const crossBtn = document.getElementById("crossBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    menuBtn.addEventListener("click", () => {
+        sidebar.classList.add("open");
+    });
+
+    crossBtn.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+    });
+
+    document.querySelectorAll("#sidebar .nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+    });
+</script>

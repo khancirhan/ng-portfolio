@@ -1,0 +1,132 @@
+* {
+     font-family: var(--primary-font), Roboto, Verdana;
+ }
+
+::selection {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Buttons
+//////////////////////////////////////////////////////////////////////////
+
+.butn,
+a.butn {
+    text-decoration: none;
+    padding: 0.8rem 3rem;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 0;
+    outline: none !important;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.butn-primary,
+a.butn-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.butn-primary:hover {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.butn-primary-outline,
+a.butn-primary-outline {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.butn-primary-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.butn-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 100%;
+    outline: none !important;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    font-size: 1.4rem;
+}
+
+.butn-toggle:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Text
+//////////////////////////////////////////////////////////////////////////
+
+.primary-text {
+    color: var(--primary-color);
+}
+
+.muted-text {
+    color: var(--muted-color);
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.secondary-font {
+    font-family: var(--secondary-font);
+}
+
+.section-heading {
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.section-subheading {
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--muted-color);
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Image
+//////////////////////////////////////////////////////////////////////////
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Content Wrappers
+//////////////////////////////////////////////////////////////////////////
+
+.content-wrapper,
+.img-wrapper {
+    flex: 1;
+    margin: 1.5rem 0;
+}
+
+.img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

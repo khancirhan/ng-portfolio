@@ -1,0 +1,18 @@
+$primary: #3dcfd3;
+$secondary: #070606;
+$muted: #898989;
+$dark: #161616;
+$light: #f2f2f2;
+$poppins-font: "Poppins";
+$roboto-font: "Roboto";
+$lato-font: "Lato";
+
+#body-wrapper {
+    --primary-color: #{$primary};
+    --secondary-color: #{$secondary};
+    --muted-color: #{$muted};
+    --dark-color: #{$dark};
+    --light-color: #{$light};
+    --primary-font: #{$poppins-font};
+    --secondary-font: #{$roboto-font};
+}
