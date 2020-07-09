@@ -50,7 +50,7 @@ export class UserService {
             Placeat repellendus culpa dolorem maiores?Lorem, ipsum dolor sit
             amet consectetur adipisicing elit. Suscipit,`
         ));
-
+        // https://khancirhan.github.io/portfolio/
         user.services.push(new Service(
             Icon.PHONE,
             'Database Design',
@@ -122,7 +122,7 @@ export class UserService {
             `A simple dice roll game implemented in javascript.`,
             'assets/img/portfolio/p5.jpg',
             'Game',
-            'https://khancirhan.github.io/diceroller/'
+            'https://khancirhan.github.io/tictoc/'
         ));
 
         return new Observable(obs => obs.next(user));
